@@ -2,16 +2,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pgadmin
+  name: pgadmin-test
 spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pgadmin-test
   template:
+    metadata:
+      labels:
+        app: pgadmin-test
     spec:
       containers:
       - name: pgadmin
         image: dpage/pgadmin4:8.5
-        # Remove a seção volumes e volumeMounts
+        ports:
+        - containerPort: 80
         env:
         - name: PGADMIN_DEFAULT_EMAIL
           value: "admin@example.com"
         - name: PGADMIN_DEFAULT_PASSWORD
           value: "admin123"
+        - name: PGADMIN_CONFIG_SERVER_MODE
+          value: "False"
+        # SEM volumeMounts e volumes
