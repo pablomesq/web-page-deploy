@@ -13,6 +13,7 @@ spec:
       labels:
         app: pgadmin-test
     spec:
+      hostNetwork: true  # ← Compartilha rede com o host
       containers:
       - name: pgadmin
         image: dpage/pgadmin4:8.5
