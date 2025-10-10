@@ -13,11 +13,11 @@ kind: Service
 metadata:
   name: postgres-bare-metal
 spec:
-  type: ExternalName
-  externalName: 10.100.0.2  # ← IP aqui, NÃO em externalIPs
+  type: ClusterIP
+  # externalName: 10.100.0.2  # ← IP aqui, NÃO em externalIPs
   ports:
   - port: 5432
     targetPort: 5432
     protocol: TCP
-  # externalIPs:
-  # - "10.100.0.2"
+  externalIPs:
+  - "10.100.0.2"
