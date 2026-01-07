@@ -17,3 +17,7 @@ spec:
               name: webpage
               port:
                 number: 80  # ← MUDAR PARA 443
+status:
+  loadBalancer:
+    ingress:
+      - ip: 172.18.100.2
