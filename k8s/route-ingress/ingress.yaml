@@ -9,7 +9,8 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - http:
+    - host: webpage.pablomesquita.com
+      http:
         paths:
         - path: /webpage
           pathType: Prefix
