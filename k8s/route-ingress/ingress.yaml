@@ -4,7 +4,8 @@ metadata:
   name: ingress-webcolor
   namespace: webcolor
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    # nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
   ingressClassName: nginx
   rules:
@@ -17,10 +18,3 @@ spec:
               name: webpage
               port:
                 number: 80  
-        - path: /webpage(/|$)(.*)
-          pathType: ImplementationSpecific  # ← MUDAR AQUI
-          backend:
-            service:
-              name: webpage
-              port:
-                number: 80
