@@ -4,13 +4,13 @@ metadata:
   name: ingress-webcolor
   namespace: webcolor
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /webpage
 spec:
   ingressClassName: nginx
   rules:
     - http:
         paths:
-        - path: /
+        - path: /webpage
           pathType: Prefix
           backend:
             service:
