@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-webcolor
+  namespace: webcolor
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+        - path: /webpage
+          pathType: Prefix
+          backend:
+            service:
+              name: webpage
+              port:
+                number: 80  # ← MUDAR PARA 443
